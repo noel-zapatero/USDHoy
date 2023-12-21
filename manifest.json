@@ -1,0 +1,10 @@
+{
+	"manifest_version": 3,
+	"name": "Dólar Hoy - Arg",
+	"description": "Extensión para tener los precios de USD a mano",
+	"version": "1.0",
+	"action": {
+	  "default_popup": "popup/popup.html",
+	  "default_icon": "icon.png"
+	}
+  }

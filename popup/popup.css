@@ -1,0 +1,25 @@
+html{
+	height: 115px;
+}
+
+body{
+	width: 150px;
+	height: auto;
+}
+
+ul{
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+li{
+	margin-bottom: 5px;
+}
+
+details{
+	padding-bottom: 5px;
+}
+
+details summary > * {
+	display: inline;
+}
