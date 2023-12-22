@@ -53,11 +53,21 @@ function listenCheckboxes(){
 
 async function checkLocalStorage(){
 	await LS.get(["dolarHoyArg"], function(items){
-		if(items != undefined && items != ''){
+		if(items.dolarHoyArg != undefined && items.dolarHoyArg != ''){
 			checkedUSD = JSON.parse(items.dolarHoyArg);
+			markLS();
 			updateView();
 		}
 	});
+}
+
+function markLS(){
+	let checks = document.getElementsByClassName("checkMenu");
+	for(i=0; i < checks.length; i++){
+		if(checkedUSD.includes(checks[i].parentNode.textContent)){
+			checks[i].checked = true;
+		}
+	}
 }
 
 async function updateView(){
@@ -66,11 +76,11 @@ async function updateView(){
 		view.innerHTML = '';
 		for(i=0; i < checkedUSD.length; i++){
 			let li = document.createElement('li')
-			li.innerHTML += `<div><details><summary><h3>Dolar ${checkedUSD[i]}</h3></summary><b>Compra:</b> $<span id="${checkedUSD[i].toLowerCase()}Compra"></span><span style="margin: 0px 5px"><b>|</b></span><b>Venta:</b> $<span id="${checkedUSD[i].toLowerCase()}Venta"></span></details></div>`
+			let usd = dolares.find(d => d.nombre == checkedUSD[i]);
+			li.innerHTML += `<div><details><summary><h3>Dolar ${usd.nombre}</h3></summary><b>Compra:</b> $<span id="${usd.casa}Compra"></span><span style="margin: 0px 5px"><b>|</b></span><b>Venta:</b> $<span id="${usd.casa}Venta"></span></details></div>`
 
 			view.appendChild(li);
 			
-			let usd = dolares.find(d => d.nombre == checkedUSD[i]);
 			document.getElementById(usd.casa + 'Compra').innerHTML = usd.compra;
 			document.getElementById(usd.casa + 'Venta').innerHTML = usd.venta;
 		}
