@@ -4,29 +4,21 @@
 	</head>
 	<body>
 		<div>
-			<h2>Dolar Hoy</h2>
+			<div>
+				<nav role="navigation" style="display: flex;">
+					<div id="menuToggle">
+						<input type="checkbox" />
+						<span></span>
+						<span></span>
+						<span></span>
+						<ul id="menu"></ul>
+					</div>
+					<h2 class="title">Dolar Hoy</h2>
+				</nav>
+			</div>
 			<hr>
 			<div>
-				<ul>
-					<li>
-						<div>
-							<details>
-								<summary><h3>Dolar Oficial</h3></summary>
-								<b>Compra:</b> $<span id="oficialCompra"></span>
-								<b>Venta:</b> $<span id="oficialVenta"></span>
-							</details>
-						</div>
-					</li>
-					<li>
-						<div>
-							<details>
-								<summary><h3>Dolar Blue</h3></summary>
-								<b>Compra:</b> $<span id="blueCompra"></span>
-								<b>Venta:</b> $<span id="blueVenta"></span>
-							</details>
-						</div>
-					</li>
-				</ul>
+				<ul id="view"></ul>
 			</div>
 		</div>
 		<script src="popup.js"></script>
