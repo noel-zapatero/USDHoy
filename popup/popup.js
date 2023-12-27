@@ -6,12 +6,19 @@ var checkedUSD = [];
 async function getUSD() {
 	const response = await fetch("https://dolarapi.com/v1/dolares")
 	dolares = await response.json();
+	reemplazarAcentos();
 	console.log(dolares);
 
 	createList();
 	listenCheckboxes();
 	updateView();
 	checkLocalStorage();
+}
+
+function reemplazarAcentos(){
+	for(i=0;i < dolares.length; i++){
+		dolares[i].nombre = dolares[i].nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	}
 }
 
 function createList(){
