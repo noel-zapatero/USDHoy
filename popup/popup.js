@@ -7,7 +7,7 @@ async function getUSD() {
 	const response = await fetch("https://dolarapi.com/v1/dolares")
 	dolares = await response.json();
 	reemplazarAcentos();
-	console.log(dolares);
+	// console.log(dolares);
 
 	createList();
 	listenCheckboxes();
